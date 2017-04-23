@@ -85,7 +85,6 @@ shinyServer(function(input, output) {
     
     if (!exists("redshift") | dbDisconnect(redshift) == TRUE) {
       
-      redshift <- dbConnect(drv, host = 'rsh-rpt-se1-dat-rdb-mem-prd.c2vtvr6b5gso.us-east-1.redshift.amazonaws.com', dbname = 'members',user = "rmn_jjea", password = "182493Superman.",port='5439')
       
     }
     
@@ -123,7 +122,7 @@ shinyServer(function(input, output) {
       drv <- dbDriver("PostgreSQL")
       if (!exists("redshift") | dbDisconnect(redshift) == TRUE) {
         
-        redshift <- dbConnect(drv, host = 'rsh-rpt-se1-dat-rdb-mem-prd.c2vtvr6b5gso.us-east-1.redshift.amazonaws.com', dbname = 'members',user = "rmn_jjea", password = "182493Superman.",port='5439')
+        
         
       }
       
