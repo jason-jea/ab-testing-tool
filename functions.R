@@ -24,20 +24,13 @@ library(readr)
 ## segment (.edu?)
 ## a/b test: how many groups?
 
-writeBin(
-  aws.s3::getobject(
-    bucket = 's3-rpt-uss-dat-warehouse',
-    key = 'AKIAJFWGWAYSAVIYVUHA',
-    secret = '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',
-    object = "prd/bi/push_tool/v01/domains/truncate-loadall/domain_names000.gz"
-  )$content,"domains.gz")
+
 
 domains <-
   read.table(gzfile("domains.gz"))
 
 # drv <- dbDriver("PostgreSQL")
 # 
-# redshift = dbConnect(drv, host = 'rsh-rpt-se1-dat-rdb-mem-prd.c2vtvr6b5gso.us-east-1.redshift.amazonaws.com', dbname = 'members',user = "rmn_jjea", password = "182493Superman.",port='5439')
 # 
 # finaldata <- dbGetQuery(redshift,"with t1 as (select channelid,sum(case when domain in ('1000bulbs.com') then .7 else .3 end * affinity_score) as affinity_score from bi_work.merchant_affinity_push where (domain= '1000bulbs.com' and affinity_score > 0)group by 1) select channelid from t1 where affinity_score >=0.73")
 
